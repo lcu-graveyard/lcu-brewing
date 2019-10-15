@@ -30,6 +30,7 @@ import { UsersStateManagerContext } from './state/users/user-state-manager.conte
 import { environment } from '../environments/environment';
 import { MaterialKitchenSinkComponent, KitchenSinkComponent } from './controls/material-kitchen-sink/material-kitchen-sink.component';
 import { MatBottomSheet } from '@angular/material';
+import { LcuBrewingModule } from '@fathym-it/lcu-brewing-common';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { MatBottomSheet } from '@angular/material';
     MaterialModule,
     PipeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LcuBrewingModule
   ],
   providers: [
     MatBottomSheet,
