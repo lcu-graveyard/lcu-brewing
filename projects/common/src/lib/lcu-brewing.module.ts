@@ -1,19 +1,12 @@
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FathymSharedModule, MaterialModule } from '@lcu/common';
-import { LcuBrewingBrewAnalyticsElementComponent } from './elements/brew-analytics/brew-analytics.component';
+import { CommonModule } from '@angular/common';
+
+
 
 @NgModule({
-  declarations: [LcuBrewingBrewAnalyticsElementComponent],
+  declarations: [],
   imports: [
-    FathymSharedModule,
-    MaterialModule,
-    FlexLayoutModule,
-    ReactiveFormsModule,
-    FormsModule,
-  ],
-  exports: [LcuBrewingBrewAnalyticsElementComponent],
-  entryComponents: [LcuBrewingBrewAnalyticsElementComponent]
+    CommonModule
+  ]
 })
-export class LcuBrewingModule {}
+export class LcuBrewingModule { }
