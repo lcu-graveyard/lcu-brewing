@@ -6,9 +6,13 @@
   },
   "config": {
     "wc": ["wc/lcu-brewing.lcu.js"],
-    "solutions": {},
+    "solutions": {
+      "anyltics-manager": {
+        "element": "lcu-brewing-brewing-analytics-element"
+      }
+    },
     "elements": {},
-    "flux": {},
+    "data-flow": {},
     "dependencies": {}
   }
 }
