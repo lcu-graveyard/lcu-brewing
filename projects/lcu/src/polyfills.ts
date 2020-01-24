@@ -61,11 +61,3 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
-
-
-
-if (!window['customElements']) {
-  const script = document.createElement('script');
-  script.src = './assets/webcomponentsjs/bundles/webcomponents-sd-ce.js';
-  document.writeln(script.outerHTML);
-}

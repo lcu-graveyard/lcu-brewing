@@ -1,18 +1,28 @@
-import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FathymSharedModule } from '@lcu/common';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LcuBrewingBrewingAnalyticsElementComponent } from './elements/brewing-analytics/brewing-analytics.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FathymSharedModule, MaterialModule } from '@lcu/common';
+import { LcuService } from './services/lcu.service';
+import { LcuComponent } from './controls/lcu/lcu.component';
+import { LcuDirective } from './directives/lcu.directive';
 
 @NgModule({
-  declarations: [LcuBrewingBrewingAnalyticsElementComponent],
+  declarations: [LcuComponent, LcuDirective],
   imports: [
     FathymSharedModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MaterialModule
   ],
-  exports: [LcuBrewingBrewingAnalyticsElementComponent],
-  entryComponents: [LcuBrewingBrewingAnalyticsElementComponent]
+  exports: [LcuComponent, LcuDirective],
+  entryComponents: []
 })
-export class LcuBrewingModule {}
+export class LcuBrewingModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: LcuBrewingModule,
+      providers: [LcuService]
+    };
+  }
+}

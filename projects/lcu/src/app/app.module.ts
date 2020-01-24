@@ -1,27 +1,24 @@
-import { NgModule, DoBootstrap, Injector } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { createCustomElement } from '@angular/elements';
-import { FathymSharedModule } from '@lcu/common';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {
-  LcuBrewingModule,
-  LcuBrewingBrewingAnalyticsElementComponent,
-  SelectorLcuBrewingBrewingAnalyticsElement
-} from '@fathym-it/lcu-brewing-common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FathymSharedModule, LCUServiceSettings } from '@lcu/common';
+import { environment } from '../environments/environment';
+import { LcuBrewingModule } from '@fathym-it/lcu-brewing-common';
 
 @NgModule({
   declarations: [],
-  imports: [BrowserModule, BrowserAnimationsModule, FathymSharedModule, LcuBrewingModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FathymSharedModule,
+    LcuBrewingModule.forRoot()
+  ],
+  providers: [
+    {
+      provide: LCUServiceSettings,
+      useValue: FathymSharedModule.DefaultServiceSettings(environment)
+    }
+  ],
   exports: [LcuBrewingModule]
 })
-export class AppModule implements DoBootstrap {
-  //  Constructors
-  constructor(protected injector: Injector) {}
-
-  //  Life Cycle
-  public ngDoBootstrap() {
-    const cfgMgr = createCustomElement(LcuBrewingBrewingAnalyticsElementComponent, { injector: this.injector });
-
-    customElements.define(SelectorLcuBrewingBrewingAnalyticsElement, cfgMgr);
-  }
-}
+export class AppModule {}

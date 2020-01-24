@@ -1,13 +1,26 @@
 <div [className]="ThemeClass | async" style="height: 100%">
-    <lcu-side-nav
-        [nav-links]="Links" 
-        logo-class="primary-logo"
-        logo-alt="Fathym Logo">
-        <div class="router-container " style="height: 90%;">
-            <!-- <div style="height: 150px; width: auto" class="thinky-logo"></div> -->
-            <router-outlet (activate)="OnActivate($event)"></router-outlet>
-        </div>
-        <img class="bg-image" [src]="BackgroundImage" alt="">
-    </lcu-side-nav>
-</div>
-
+    <mat-toolbar color="primary" class="lcu-toolbar">
+      <h1>{{Title}}</h1>
+      <span fxFlex="nogrow">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>format_color_fill</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <div *ngFor="let theme of Themes">
+            <div fxLayout="row" fxLayoutGap="10px" fxFlex fxLayoutAlign="start center" mat-menu-item
+              (click)="PickTheme(theme.Color)">
+              <mat-icon [ngClass]="theme.ColorSwatch">{{theme.Icon}}</mat-icon>
+              <span>{{theme.Label}}</span>
+            </div>
+          </div>
+        </mat-menu>
+      </span>
+    </mat-toolbar>
+  
+    <div class="lcu-content">
+      <div class="lcu-card-container" fxLayout="row" fxLayout.lt-md="column">
+        <lcu-lcu *ngFor="let card of Cards" [card]="card" (cardSelected)="DisplayDetails()"></lcu-lcu>
+      </div>
+    </div>
+  </div>
+  
