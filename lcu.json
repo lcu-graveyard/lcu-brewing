@@ -1,14 +1,20 @@
 {
-  "templates": {
-    "repository": "lowcodeunit-devkit/lcu-cli-templates-core",
-    "scope": "@fathym-it",
-    "workspace": "lcu-brewing"
-  },
-  "config": {
-    "wc": ["wc/lcu-brewing.lcu.js"],
-    "solutions": {},
-    "elements": {},
-    "data-flow": {},
-    "dependencies": {}
-  }
+	"templates": {
+		"repository": "lowcodeunit-devkit/lcu-cli-templates-core",
+		"scope": "@fathym-it",
+		"workspace": "lcu-brewing"
+	},
+	"config": {
+		"wc": [
+			"wc/lcu-brewing.lcu.js"
+		],
+		"solutions": {
+			"brew-management": {
+				"element": "lcu-brewing-brew-management-element"
+			}
+		},
+		"elements": {},
+		"data-flow": {},
+		"dependencies": {}
+	}
 }
