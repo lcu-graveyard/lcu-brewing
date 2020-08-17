@@ -1,6 +1,6 @@
 {
 	"name": "@fathym-it/lcu-brewing",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"scripts": {
 		"build:admin": "ng build admin --prod",
 		"build:common": "ng build common",
