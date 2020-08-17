@@ -5,10 +5,10 @@ import { FathymSharedModule, MaterialModule } from '@lcu/common';
 import { LcuService } from './services/lcu.service';
 import { LcuComponent } from './controls/lcu/lcu.component';
 import { LcuDirective } from './directives/lcu.directive';
-import { LcuBrewingBrewManagementElementComponent } from './elements/brew-management/brew-management.component';
+import { LcuBrewingBrewsElementComponent } from './elements/brews/brews.component';
 
 @NgModule({
-  declarations: [LcuComponent, LcuDirective, LcuBrewingBrewManagementElementComponent],
+  declarations: [LcuComponent, LcuDirective, LcuBrewingBrewsElementComponent],
   imports: [
     FathymSharedModule,
     FormsModule,
@@ -16,11 +16,11 @@ import { LcuBrewingBrewManagementElementComponent } from './elements/brew-manage
     FlexLayoutModule,
     MaterialModule
   ],
-  exports: [LcuComponent, LcuDirective, LcuBrewingBrewManagementElementComponent],
-  entryComponents: [LcuBrewingBrewManagementElementComponent]
+  exports: [LcuComponent, LcuDirective, LcuBrewingBrewsElementComponent],
+  entryComponents: [LcuBrewingBrewsElementComponent]
 })
 export class LcuBrewingModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<LcuBrewingModule> {
     return {
       ngModule: LcuBrewingModule,
       providers: [LcuService]

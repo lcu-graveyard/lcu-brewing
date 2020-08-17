@@ -2,7 +2,10 @@
 	"name": "@fathym-it/lcu-brewing-common",
 	"version": "0.0.1",
 	"peerDependencies": {
-		"@angular/common": "^8.2.14",
-		"@angular/core": "^8.2.14"
+		"@angular/common": "^9.1.12",
+		"@angular/core": "^9.1.12"
+	},
+	"dependencies": {
+		"tslib": "^1.10.0"
 	}
 }

@@ -9,8 +9,8 @@
 			"wc/lcu-brewing.lcu.js"
 		],
 		"solutions": {
-			"brew-management": {
-				"element": "lcu-brewing-brew-management-element"
+			"brews": {
+				"element": "lcu-brewing-brews-element"
 			}
 		},
 		"elements": {},

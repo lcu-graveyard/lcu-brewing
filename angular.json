@@ -14,6 +14,11 @@
 					"options": {
 						"tsConfig": "projects/common/tsconfig.lib.json",
 						"project": "projects/common/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/common/tsconfig.lib.prod.json"
+						}
 					}
 				},
 				"test": {
@@ -57,7 +62,7 @@
 						"main": "projects/lcu/src/main.ts",
 						"polyfills": "projects/lcu/src/polyfills.ts",
 						"tsConfig": "projects/lcu/tsconfig.app.json",
-						"aot": false,
+						"aot": true,
 						"assets": [
 							"projects/lcu/src/favicon.ico",
 							{
@@ -99,7 +104,6 @@
 							"sourceMap": false,
 							"extractCss": true,
 							"namedChunks": false,
-							"aot": true,
 							"extractLicenses": true,
 							"vendorChunk": false,
 							"buildOptimizer": true
@@ -186,7 +190,7 @@
 						"main": "projects/demo/src/main.ts",
 						"polyfills": "projects/demo/src/polyfills.ts",
 						"tsConfig": "projects/demo/tsconfig.app.json",
-						"aot": false,
+						"aot": true,
 						"assets": [
 							"projects/demo/src/favicon.ico",
 							"projects/demo/src/assets",
@@ -194,7 +198,8 @@
 								"glob": "package.json",
 								"input": "./projects/demo/",
 								"output": "/"
-							}
+							},
+							"projects/demo/src/docs"
 						],
 						"styles": [
 							"projects/demo/src/styles.scss"
@@ -214,7 +219,6 @@
 							"sourceMap": false,
 							"extractCss": true,
 							"namedChunks": false,
-							"aot": true,
 							"extractLicenses": true,
 							"vendorChunk": false,
 							"buildOptimizer": true
@@ -282,37 +286,37 @@
 				}
 			}
 		},
-		"test": {
+		"marketing": {
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:component": {
 					"style": "scss"
 				}
 			},
-			"root": "projects/test",
-			"sourceRoot": "projects/test/src",
+			"root": "projects/marketing",
+			"sourceRoot": "projects/marketing/src",
 			"prefix": "lcu",
 			"architect": {
 				"build": {
 					"builder": "@angular-devkit/build-angular:browser",
 					"options": {
-						"outputPath": "dist/test",
-						"index": "projects/test/src/index.html",
-						"main": "projects/test/src/main.ts",
-						"polyfills": "projects/test/src/polyfills.ts",
-						"tsConfig": "projects/test/tsconfig.app.json",
-						"aot": false,
+						"outputPath": "dist/marketing",
+						"index": "projects/marketing/src/index.html",
+						"main": "projects/marketing/src/main.ts",
+						"polyfills": "projects/marketing/src/polyfills.ts",
+						"tsConfig": "projects/marketing/tsconfig.app.json",
+						"aot": true,
 						"assets": [
-							"projects/test/src/favicon.ico",
-							"projects/test/src/assets",
+							"projects/marketing/src/favicon.ico",
+							"projects/marketing/src/assets",
 							{
 								"glob": "package.json",
-								"input": "./projects/test/",
+								"input": "./projects/marketing/",
 								"output": "/"
 							}
 						],
 						"styles": [
-							"projects/test/src/styles.scss"
+							"projects/marketing/src/styles.scss"
 						],
 						"scripts": []
 					},
@@ -320,8 +324,8 @@
 						"production": {
 							"fileReplacements": [
 								{
-									"replace": "projects/test/src/environments/environment.ts",
-									"with": "projects/test/src/environments/environment.prod.ts"
+									"replace": "projects/marketing/src/environments/environment.ts",
+									"with": "projects/marketing/src/environments/environment.prod.ts"
 								}
 							],
 							"optimization": true,
@@ -329,7 +333,6 @@
 							"sourceMap": false,
 							"extractCss": true,
 							"namedChunks": false,
-							"aot": true,
 							"extractLicenses": true,
 							"vendorChunk": false,
 							"buildOptimizer": true
@@ -339,33 +342,33 @@
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"options": {
-						"browserTarget": "test:build"
+						"browserTarget": "marketing:build"
 					},
 					"configurations": {
 						"production": {
-							"browserTarget": "test:build:production"
+							"browserTarget": "marketing:build:production"
 						}
 					}
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
 					"options": {
-						"browserTarget": "test:build"
+						"browserTarget": "marketing:build"
 					}
 				},
 				"test": {
 					"builder": "@angular-devkit/build-angular:karma",
 					"options": {
-						"main": "projects/test/src/test.ts",
-						"polyfills": "projects/test/src/polyfills.ts",
-						"tsConfig": "projects/test/tsconfig.spec.json",
-						"karmaConfig": "projects/test/karma.conf.js",
+						"main": "projects/marketing/src/test.ts",
+						"polyfills": "projects/marketing/src/polyfills.ts",
+						"tsConfig": "projects/marketing/tsconfig.spec.json",
+						"karmaConfig": "projects/marketing/karma.conf.js",
 						"assets": [
-							"projects/test/src/favicon.ico",
-							"projects/test/src/assets"
+							"projects/marketing/src/favicon.ico",
+							"projects/marketing/src/assets"
 						],
 						"styles": [
-							"projects/test/src/styles.scss"
+							"projects/marketing/src/styles.scss"
 						],
 						"scripts": []
 					}
@@ -374,9 +377,9 @@
 					"builder": "@angular-devkit/build-angular:tslint",
 					"options": {
 						"tsConfig": [
-							"projects/test/tsconfig.app.json",
-							"projects/test/tsconfig.spec.json",
-							"projects/test/e2e/tsconfig.json"
+							"projects/marketing/tsconfig.app.json",
+							"projects/marketing/tsconfig.spec.json",
+							"projects/marketing/e2e/tsconfig.json"
 						],
 						"exclude": [
 							"**/node_modules/**"
@@ -386,12 +389,12 @@
 				"e2e": {
 					"builder": "@angular-devkit/build-angular:protractor",
 					"options": {
-						"protractorConfig": "projects/test/e2e/protractor.conf.js",
-						"devServerTarget": "test:serve"
+						"protractorConfig": "projects/marketing/e2e/protractor.conf.js",
+						"devServerTarget": "marketing:serve"
 					},
 					"configurations": {
 						"production": {
-							"devServerTarget": "test:serve:production"
+							"devServerTarget": "marketing:serve:production"
 						}
 					}
 				}

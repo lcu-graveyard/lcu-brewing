@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LcuUtils, LcuService, LcuModel } from '@fathym-it/lcu-brewing-common';
+import { LcuUtils } from '@fathym-it/lcu-brewing-common';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { ThemeColorPickerService } from '@lcu/common';
 
@@ -9,19 +9,16 @@ import { ThemeColorPickerService } from '@lcu/common';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public Cards: LcuModel[];
   public ThemeClass: BehaviorSubject<string>;
   public Themes: Array<any>;
-  public Title = 'Welcome to the LCU-Starter-App';
+  public Title = 'LCU-Starter-App';
 
   constructor(
-    protected themeService: ThemeColorPickerService,
-    protected lcuService: LcuService
+    protected themeService: ThemeColorPickerService
   ) { }
 
   public ngOnInit(): void {
     this.Title = LcuUtils.upperLcu(this.Title);
-    this.Cards = this.lcuService.getCardData();
     this.resetTheme();
     this.setThemes();
   }
